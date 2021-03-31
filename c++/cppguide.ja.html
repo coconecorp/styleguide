@@ -11120,18 +11120,18 @@ string tablename;   // OK - すべて小文字。
 <pre>class TableInfo {
   ...
  private:
-  string table_name_;  // OK - underscore at end.
-  string tablename_;   // OK.
-  static Pool&lt;TableInfo&gt;* pool_;  // OK.
+  string table_name;  // OK.
+  string tablename;   // OK.
+  static Pool&lt;TableInfo&gt;* pool;  // OK.
 };
 </pre>
                     </div>
                     <pre>class TableInfo {
   ...
  private:
-  string table_name_;  // OK - 末尾にアンダースコアがついている。
-  string tablename_;   // OK.
-  static Pool&lt;TableInfo&gt;* pool_;  // OK.
+  string table_name;  // OK.
+  string tablename;   // OK.
+  static Pool&lt;TableInfo&gt;* pool;  // OK.
 };
 </pre>
                 </div>
@@ -11185,10 +11185,10 @@ string tablename;   // OK - すべて小文字。
                     <span>
                         <span class="src">
                             Variables declared constexpr or const, and whose value is fixed for
-                            the duration of the program, are named with a leading "k" followed
-                            by mixed case.
+                            the duration of the program, are named with a leading "K" followed
+                            by upper case.
                         </span>
-                        constexprあるいはconstとして宣言され、プログラムの始めから終わりまで値が変わらない変数は、頭に「k」を付けて、大文字小文字を織り交ぜて宣言します。
+                        constexprあるいはconstとして宣言され、プログラムの始めから終わりまで値が変わらない変数は、頭に「K」を付けて、大文字で宣言します。
                     </span>
                     <span>
                         <span class="src">
@@ -11206,7 +11206,7 @@ string tablename;   // OK - すべて小文字。
                 </p>
             </div>
 
-<pre>const int kAndroid8_0_0 = 24;  // Android 8.0.0
+<pre>const int KAndroid8_0_0 = 24;  // Android 8.0.0
 </pre>
 
             <div class="stylebody">
@@ -11255,16 +11255,16 @@ string tablename;   // OK - すべて小文字。
                 <p>
                     <span>
                         <span class="src">
-                            Ordinarily, functions should start with a capital letter and have a
-                            capital letter for each new word.
+                            Ordinarily, functions should start with a lower letter and have a
+                            lower letter for each new word.
                         </span>
-                        通常、関数名は大文字で始まり、新しい単語が現れるごとに大文字を使用します。
+                        通常、関数名は小文字で始まり、新しい単語が現れるごとに大文字を使用します。
                     </span>
                 </p>
 
-<pre>AddTableEntry()
-DeleteUrl()
-OpenFileOrDie()
+<pre>addTableEntry()
+deleteUrl()
+openFileOrDie()
 </pre>
                 <p>
                     <span>
@@ -12321,8 +12321,7 @@ Iterator* GetIterator() const;
                         <span class="src">
                             However, if the type and name suffice (
                             <code>
-                                int
-                                num_events_;
+                                int numEvents;
                             </code>), no comment is needed.
                         </span>
                         一方で、型と名前だけで十分ならば(<code>int num_events_;</code>)は、コメントは不要でしょう。
@@ -12351,13 +12350,13 @@ Iterator* GetIterator() const;
 <pre>private:
  // Used to bounds-check table accesses. -1 means
  // that we don't yet know how many entries the table has.
- int num_total_entries_;
+ int numTotalEntries;
 </pre>
                     </div>
                     <pre>private:
  // テーブルアクセスの境界値チェックに使います。
  // -1 は、まだテーブルにいくつの要素があるかわからないことを意味します。
- int num_total_entries_;
+ int numTotalEntries;
 </pre>
                 </div>
 
@@ -12384,11 +12383,11 @@ Iterator* GetIterator() const;
                     <div class="src">
 
 <pre>// The total number of tests cases that we run through in this regression test.
-const int kNumTestCases = 6;
+const int KNumTestCases = 6;
 </pre>
                     </div>
                     <pre>// この回帰テストにおけるテストケースの総数
-const int kNumTestCases = 6;
+const int KNumTestCases = 6;
 </pre>
                 </div>
 
@@ -12433,18 +12432,18 @@ const int kNumTestCases = 6;
 <pre>// Divides result by two, taking into account that x
 // contains the carry from the add.
 for (int i = 0; i &lt; result-&gt;size(); i++) {
-  x = (x &lt;&lt; 8) + (*result)[i];
-  (*result)[i] = x &gt;&gt; 1;
-  x &amp;= 1;
+    x = (x &lt;&lt; 8) + (*result)[i];
+    (*result)[i] = x &gt;&gt; 1;
+    x &amp;= 1;
 }
 </pre>
                     </div>
                     <pre>// resultを2で割る。
 // xには加算からのキャリーが含まれることを考慮する。
 for (int i = 0; i &lt; result-&gt;size(); i++) {
-  x = (x &lt;&lt; 8) + (*result)[i];
-  (*result)[i] = x &gt;&gt; 1;
-  x &amp;= 1;
+    x = (x &lt;&lt; 8) + (*result)[i];
+    (*result)[i] = x &gt;&gt; 1;
+    x &amp;= 1;
 }
 </pre>
                 </div>
@@ -13396,9 +13395,9 @@ if (iter != v.end()) {
                 <p>
                     <span>
                         <span class="src">
-                            Use only spaces, and indent 2 spaces at a time.
+                            Use only spaces, and indent 4 spaces at a time.
                         </span>
-                        スペースのみを使用してください。インデント1つにつき、スペースは2つです。
+                        スペースのみを使用してください。インデント1つにつき、スペースは4つです。
                     </span>
                 </p>
             </div>
@@ -13465,8 +13464,8 @@ if (iter != v.end()) {
 
 
 <pre>ReturnType ClassName::FunctionName(Type par_name1, Type par_name2) {
-  DoSomething();
-  ...
+    DoSomething();
+    ...
 }
 </pre>
 
@@ -13481,8 +13480,8 @@ if (iter != v.end()) {
 
 <pre>ReturnType ClassName::ReallyLongFunctionName(Type par_name1, Type par_name2,
                                              Type par_name3) {
-  DoSomething();
-  ...
+    DoSomething();
+    ...
 }
 </pre>
 
@@ -13497,20 +13496,20 @@ if (iter != v.end()) {
                 <div>
                     <div class="src">
 <pre>ReturnType LongClassName::ReallyReallyReallyLongFunctionName(
-    Type par_name1,  // 4 space indent
-    Type par_name2,
-    Type par_name3) {
-  DoSomething();  // 2 space indent
+        Type par_name1,  // 8 space indent
+        Type par_name2,
+        Type par_name3) {
+    DoSomething();  // 4 space indent
   ...
 }
 </pre>
                     </div>
                     <pre>ReturnType LongClassName::ReallyReallyReallyLongFunctionName(
-    Type par_name1,  // インデントはスペース 4個
-    Type par_name2,
-    Type par_name3) {
-  DoSomething();  // インデントはスペース 2個
-  ...
+        Type par_name1,  // インデントはスペース 8個
+        Type par_name2,
+        Type par_name3) {
+    DoSomething();  // インデントはスペース 4個
+    ...
 }
 </pre>
                 </div>
@@ -13636,9 +13635,9 @@ if (iter != v.end()) {
                     <li>
                         <span>
                             <span class="src">
-                                Default indentation is 2 spaces.
+                                Default indentation is 4 spaces.
                             </span>
-                            デフォルトのインデントはスペース2つです。
+                            デフォルトのインデントはスペース4つです。
                         </span>
                     </li>
 
@@ -13662,11 +13661,11 @@ if (iter != v.end()) {
                 </p>
 
 <pre>class Foo {
- public:
-  Foo(Foo&amp;&amp;);
-  Foo(const Foo&amp;);
-  Foo&amp; operator=(Foo&amp;&amp;);
-  Foo&amp; operator=(const Foo&amp;);
+public:
+    Foo(Foo&amp;&amp;);
+    Foo(const Foo&amp;);
+    Foo&amp; operator=(Foo&amp;&amp;);
+    Foo&amp; operator=(const Foo&amp;);
 };
 </pre>
 
@@ -13681,13 +13680,13 @@ if (iter != v.end()) {
                 </p>
 
 <pre>class Shape {
- public:
-  virtual void Rotate(double radians) = 0;
+public:
+    virtual void Rotate(double radians) = 0;
 };
 
 class Circle : public Shape {
- public:
-  void Rotate(double radians) override;
+public:
+    void Rotate(double radians) override;
 };
 
 void Circle::Rotate(double /*radians*/) {}
@@ -13836,25 +13835,25 @@ digits.erase(std::remove_if(digits.begin(), digits.end(), [&amp;blacklist](int i
                 <div>
                     <div class="src">
 <pre>if (...) {
-  ...
-  ...
-  if (...) {
-    bool result = DoSomething(
-        argument1, argument2,  // 4 space indent
-        argument3, argument4);
     ...
-  }
+    ...
+    if (...) {
+        bool result = DoSomething(
+            argument1, argument2,  // 4 space indent
+            argument3, argument4);
+        ...
+    }
 </pre>
                     </div>
                     <pre>if (...) {
-  ...
-  ...
-  if (...) {
-    bool result = DoSomething(
-        argument1, argument2,  // スペース4つでインデント
-        argument3, argument4);
     ...
-  }
+    ...
+    if (...) {
+        bool result = DoSomething(
+            argument1, argument2,  // スペース4つでインデント
+            argument3, argument4);
+        ...
+    }
 </pre>
                 </div>
 
@@ -14149,20 +14148,20 @@ MyType m = {  // {の前で改行してもかまいません
                 <div>
                     <div class="src">
 <pre>if (condition) {  // no spaces inside parentheses
-  ...  // 2 space indent.
+    ...  // 4 space indent.
 } else if (...) {  // The else goes on the same line as the closing brace.
-  ...
+      ...
 } else {
-  ...
+    ...
 }
 </pre>
                     </div>
                     <pre>if (condition) {  // 丸カッコの中にはスペースを入れない。
-  ...  // スペース2つでインデント
+    ...  // スペース4つでインデント
 } else if (...) {  // elseは、閉じ波カッコと同じ行におく。
-  ...
+    ...
 } else {
-  ...
+    ...
 }
 </pre>
                 </div>
@@ -14179,16 +14178,16 @@ MyType m = {  // {の前で改行してもかまいません
                 <div>
                     <div class="src">
 <pre>if ( condition ) {  // spaces inside parentheses - rare
-  ...  // 2 space indent.
+    ...  // 4 space indent.
 } else {  // The else goes on the same line as the closing brace.
-  ...
+    ...
 }
 </pre>
                     </div>
                     <pre>if ( condition ) {  // 丸カッコの中にスペースがある。(きわめて少数派)
-  ...  // スペース2つでインデント
+    ...  // スペース4つでインデント
 } else {  // else は閉じ波カッコと同じ行におく。
-  ...
+    ...
 }
 </pre>
                 </div>
@@ -14298,18 +14297,18 @@ else DoThat();
                 <div>
                     <div class="src">
 <pre>if (condition)
-  DoSomething();  // 2 space indent.
+    DoSomething();  // 4 space indent.
 
 if (condition) {
-  DoSomething();  // 2 space indent.
+    DoSomething();  // 4 space indent.
 }
 </pre>
                     </div>
                     <pre>if (condition)
-  DoSomething();  // スペース2つでインデント
+    DoSomething();  // スペース4つでインデント
 
 if (condition) {
-  DoSomething();  // スペース2つでインデント
+    DoSomething();  // スペース4つでインデント
 }
 </pre>
                 </div>
@@ -14329,29 +14328,29 @@ if (condition) {
                     <div class="src">
 <pre class="badcode">// Not allowed - curly on IF but not ELSE
 if (condition) {
-  foo;
+    foo;
 } else
-  bar;
+    bar;
 
 // Not allowed - curly on ELSE but not IF
 if (condition)
-  foo;
+    foo;
 else {
-  bar;
+    bar;
 }
 </pre>
                     </div>
                     <pre class="badcode">// ダメ。ifには波カッコがあり、elseにはない。
 if (condition) {
-  foo;
+    foo;
 } else
-  bar;
+    bar;
 
 // ダメ。elseには波カッコがあり、ifにはない。
 if (condition)
-  foo;
+    foo;
 else {
-  bar;
+    bar;
 }
 </pre>
                 </div>
@@ -14360,17 +14359,17 @@ else {
 <pre>// Curly braces around both IF and ELSE required because
 // one of the clauses used braces.
 if (condition) {
-  foo;
+    foo;
 } else {
-  bar;
+    bar;
 }
 </pre>
                     </div>
                     <pre>// ifとelseの両方に波カッコが必要。一方で波カッコを使っているため。
 if (condition) {
-  foo;
+    foo;
 } else {
-  bar;
+    bar;
 }
 </pre>
 
@@ -14458,32 +14457,32 @@ if (condition) {
                     <div>
                         <div class="src">
 <pre>switch (var) {
-  case 0: {  // 2 space indent
-    ...      // 4 space indent
-    break;
-  }
-  case 1: {
-    ...
-    break;
-  }
-  default: {
-    assert(false);
-  }
+    case 0: {  // 4 space indent
+        ...      // 4 space indent
+        break;
+    }
+    case 1: {
+        ...
+        break;
+    }
+    default: {
+        assert(false);
+    }
 }
 </pre>
                         </div>
                         <pre>switch (var) {
-  case 0: {  // スペース2つでインデント
-    ...      // スペース4つでインデント
-    break;
-  }
-  case 1: {
-    ...
-    break;
-  }
-  default: {
-    assert(false);
-  }
+    case 0: {  // スペース4つでインデント
+        ...      // スペース4つでインデント
+        break;
+    }
+    case 1: {
+        ...
+        break;
+    }
+    default: {
+        assert(false);
+    }
 }
 </pre>
                     </div>
@@ -14533,10 +14532,10 @@ annotation is needed.</p>
                 </p>
 
 <pre>for (int i = 0; i &lt; kSomeNumber; ++i)
-  printf("I love you\n");
+    printf("I love you\n");
 
 for (int i = 0; i &lt; kSomeNumber; ++i) {
-  printf("I take it back\n");
+    printf("I take it back\n");
 }
 </pre>
 
@@ -14553,14 +14552,14 @@ for (int i = 0; i &lt; kSomeNumber; ++i) {
                 <div>
                     <div class="src">
 <pre>while (condition) {
-  // Repeat test until it returns false.
+    // Repeat test until it returns false.
 }
 for (int i = 0; i &lt; kSomeNumber; ++i) {}  // Good - one newline is also OK.
 while (condition) continue;  // Good - continue indicates no logic.
 </pre>
                     </div>
                     <pre>while (condition) {
-  // falseが変えるまでテストを続ける。
+    // falseが変えるまでテストを続ける。
 }
 for (int i = 0; i &lt; kSomeNumber; ++i) {}  // OK。新しい1行でもOK。
 while (condition) continue;  // OK。continueで、ロジックがないことを示す。
@@ -14762,14 +14761,14 @@ const string &amp; str;  // ダメ。&amp;の前後両方にスペースがあ�
 <pre>if (this_one_thing &gt; this_other_thing &amp;&amp;
     a_third_thing == a_fourth_thing &amp;&amp;
     yet_another &amp;&amp; last_one) {
-  ...
+    ...
 }
 </pre>
                     </div>
                     <pre>if (this_one_thing &gt; this_other_thing &amp;&amp;
     a_third_thing == a_fourth_thing &amp;&amp;
     yet_another &amp;&amp; last_one) {
-  ...
+    ...
 }
 </pre>
                 </div>
@@ -15035,47 +15034,47 @@ int pi{3.14};  // コンパイルエラー: より小さい型への変換
                 <div>
                     <div class="src">
                         <pre>// Good - directives at beginning of line
-  if (lopsided_score) {
+    if (lopsided_score) {
 #if DISASTER_PENDING      // Correct -- Starts at beginning of line
-    DropEverything();
+        DropEverything();
 # if NOTIFY               // OK but not required -- Spaces after #
-    NotifyClient();
+        NotifyClient();
 # endif
 #endif
-    BackToNormal();
-  }
+        BackToNormal();
+    }
 </pre>
                     </div>
                     <pre>// OK。プリプロセッサが行の頭にある。
-  if (lopsided_score) {
+    if (lopsided_score) {
 #if DISASTER_PENDING      // 正しい。行頭から始める。
-    DropEverything();
+        DropEverything();
 # if NOTIFY               // #の後ろにスペースがあってもOK(必須ではない)。
-    NotifyClient();
+        NotifyClient();
 # endif
 #endif
-    BackToNormal();
-  }
+        BackToNormal();
+    }
 </pre>
                 </div>
                 <div>
                     <div class="src">
 <pre class="badcode">// Bad - indented directives
-  if (lopsided_score) {
-    #if DISASTER_PENDING  // Wrong!  The "#if" should be at beginning of line
-    DropEverything();
-    #endif                // Wrong!  Do not indent "#endif"
-    BackToNormal();
-  }
+    if (lopsided_score) {
+        #if DISASTER_PENDING  // Wrong!  The "#if" should be at beginning of line
+        DropEverything();
+        #endif                // Wrong!  Do not indent "#endif"
+        BackToNormal();
+    }
 </pre>
                     </div>
                     <pre class="badcode">// ダメ。ディレクティブがインデントされている。
-  if (lopsided_score) {
-    #if DISASTER_PENDING  // 間違い！ "#if"は行頭になくてはならない。
-    DropEverything();
-    #endif                // 間違い！ #endifをインデントしてはダメ。
-    BackToNormal();
-  }
+    if (lopsided_score) {
+        #if DISASTER_PENDING  // 間違い！ "#if"は行頭になくてはならない。
+        DropEverything();
+        #endif                // 間違い！ #endifをインデントしてはダメ。
+        BackToNormal();
+    }
 </pre>
                 </div>
 
@@ -15117,44 +15116,44 @@ int pi{3.14};  // コンパイルエラー: より小さい型への変換
                 <div>
                     <div class="src">
                         <pre>class MyClass : public OtherClass {
- public:      // Note the 1 space indent!
-  MyClass();  // Regular 2 space indent.
-  explicit MyClass(int var);
-  ~MyClass() {}
+public:      // No indent!
+    MyClass();  // Regular 4 space indent.
+    explicit MyClass(int var);
+    ~MyClass() {}
 
-  void SomeFunction();
-  void SomeFunctionThatDoesNothing() {
-  }
+    void SomeFunction();
+    void SomeFunctionThatDoesNothing() {
+    }
 
-  void set_some_var(int var) { some_var_ = var; }
-  int some_var() const { return some_var_; }
+    void set_some_var(int var) { some_var_ = var; }
+    int some_var() const { return some_var_; }
 
- private:
-  bool SomeInternalFunction();
+private:
+    bool SomeInternalFunction();
 
-  int some_var_;
-  int some_other_var_;
+    int some_var_;
+    int some_other_var_;
 };
 </pre>
                     </div>
                     <pre>class MyClass : public OtherClass {
- public:      // スペース1つでインデント！
-  MyClass();  // スペース2つでインデント(いつもの)
-  explicit MyClass(int var);
-  ~MyClass() {}
+ public:      // スペースなし！
+    MyClass();  // スペース4つでインデント(いつもの)
+    explicit MyClass(int var);
+    ~MyClass() {}
 
-  void SomeFunction();
-  void SomeFunctionThatDoesNothing() {
-  }
+    void SomeFunction();
+    void SomeFunctionThatDoesNothing() {
+    }
 
-  void set_some_var(int var) { some_var_ = var; }
-  int some_var() const { return some_var_; }
+    void set_some_var(int var) { some_var_ = var; }
+    int some_var() const { return some_var_; }
 
- private:
-  bool SomeInternalFunction();
+private:
+    bool SomeInternalFunction();
 
-  int some_var_;
-  int some_other_var_;
+    int some_var_;
+    int some_other_var_;
 };
 </pre>
                 </div>
@@ -15279,14 +15278,14 @@ int pi{3.14};  // コンパイルエラー: より小さい型への変換
                     <div class="src">
 <pre>// When everything fits on one line:
 MyClass::MyClass(int var) : some_var_(var) {
-  DoSomething();
+    DoSomething();
 }
 
 // If the signature and initializer list are not all on one line,
 // you must wrap before the colon and indent 4 spaces:
 MyClass::MyClass(int var)
     : some_var_(var), some_other_var_(var + 1) {
-  DoSomething();
+    DoSomething();
 }
 
 // When the list spans multiple lines, put each member on its own line
@@ -15294,7 +15293,7 @@ MyClass::MyClass(int var)
 MyClass::MyClass(int var)
     : some_var_(var),             // 4 space indent
       some_other_var_(var + 1) {  // lined up
-  DoSomething();
+    DoSomething();
 }
 
 // As with any other code block, the close curly can be on the same
@@ -15305,14 +15304,14 @@ MyClass::MyClass(int var)
                     </div>
                     <pre>// 1行にすべて収まるとき
 MyClass::MyClass(int var) : some_var_(var) {
-  DoSomething();
+    DoSomething();
 }
 
 // 1行に収まらない場合は、コロンの手前で行を区切り、
 // スペース4つでインデントしなくてはならない。
 MyClass::MyClass(int var)
     : some_var_(var), some_other_var_(var + 1) {
-  DoSomething();
+    DoSomething();
 }
 
 // 初期化子リストが複数に分かれる場合は、
@@ -15320,7 +15319,7 @@ MyClass::MyClass(int var)
 MyClass::MyClass(int var)
     : some_var_(var),             // スペース4つでインデント。
       some_other_var_(var + 1) {  // 行頭は揃える。
-  DoSomething();
+    DoSomething();
 }
 
 // 他のコードブロックと同様に、1行に収まる場合は
@@ -15369,7 +15368,7 @@ MyClass::MyClass(int var)
                         <pre>namespace {
 
 void foo() {  // Correct.  No extra indentation within namespace.
-  ...
+    ...
 }
 
 }  // namespace
@@ -15378,7 +15377,7 @@ void foo() {  // Correct.  No extra indentation within namespace.
                     <pre>namespace {
 
 void foo() {  // 正しい。名前空間ではインデントしない。
-  ...
+    ...
 }
 
 }  // namespace
@@ -15398,20 +15397,20 @@ void foo() {  // 正しい。名前空間ではインデントしない。
                     <div class="src">
 <pre class="badcode">namespace {
 
-  // Wrong!  Indented when it should not be.
-  void foo() {
-    ...
-  }
+    // Wrong!  Indented when it should not be.
+    void foo() {
+        ...
+    }
 
 }  // namespace
 </pre>
                     </div>
                     <pre class="badcode">namespace {
 
-  // 間違い！　インデントされるべきではない。
-  void foo() {
-    ...
-  }
+    // 間違い！　インデントされるべきではない。
+    void foo() {
+        ...
+    }
 
 }  // namespace
 </pre>
@@ -15476,16 +15475,16 @@ int x[] = {0};
 
 // Spaces around the colon in inheritance and initializer lists.
 class Foo : public Bar {
- public:
-  // For inline function implementations, put spaces between the braces
-  // and the implementation itself.
-  Foo(int b) : Bar(), baz_(b) {}  // No spaces inside empty braces.
-  void Reset() { baz_ = 0; }  // Spaces separating braces from implementation.
-  ...
+public:
+    // For inline function implementations, put spaces between the braces
+    // and the implementation itself.
+    Foo(int b) : Bar(), baz_(b) {}  // No spaces inside empty braces.
+    void Reset() { baz_ = 0; }  // Spaces separating braces from implementation.
+    ...
 </pre>
                     </div>
                     <pre>void f(bool b) {  // 開き波カッコの前には常にスペースをおく。
-  ...
+      ...
 
 int i = 0;  // セミコロンの前にスペースはおかない。
 
@@ -15496,11 +15495,11 @@ int x[] = {0};
 
 // 継承や初期化子のコロンの前後にはスペースをおく。
 class Foo : public Bar {
- public:
-  // インライン関数の実装において、波カッコと実装の間にはスペースをおく。
-  Foo(int b) : Bar(), baz_(b) {}  // 空の実装にはスペースをおかない。
-  void Reset() { baz_ = 0; }  // 波カッコと実装との間にはスペースをおく。
-  ...
+public:
+    // インライン関数の実装において、波カッコと実装の間にはスペースをおく。
+    Foo(int b) : Bar(), baz_(b) {}  // 空の実装にはスペースをおかない。
+    void Reset() { baz_ = 0; }  // 波カッコと実装との間にはスペースをおく。
+    ...
 </pre>
                 </div>
 
@@ -15554,12 +15553,12 @@ for ( ; i &lt; 5 ; ++i) {
 
 // Range-based for loops always have a space before and after the colon.
 for (auto x : counts) {
-  ...
+    ...
 }
 switch (i) {
-  case 1:         // No space before colon in a switch case.
-    ...
-  case 2: break;  // Use a space after a colon if there's code after it.
+    case 1:         // No space before colon in a switch case.
+        ...
+    case 2: break;  // Use a space after a colon if there's code after it.
 </pre>
                     </div>
                     <pre>if (b) {          // 条件文やループキーワードの後ろにはスペースをおく。
@@ -15579,16 +15578,16 @@ for ( int i = 0; i &lt; 5; ++i ) {
 // セミコロンの前にもスペースをおいてもかまわないが、
 // そのようなケースもまたほとんどない。
 for ( ; i &lt; 5 ; ++i) {
-  ...
+    ...
 
 // レンジベースのループでは、常にコロンの前後にスペースをおく。
 for (auto x : counts) {
-  ...
+    ...
 }
 switch (i) {
-  case 1:         // caseのコロンの前にはスペースをおかない。
-    ...
-  case 2: break;  // コロンの後ろにコードがある場合はスペースをおく。
+    case 1:         // caseのコロンの前にはスペースをおかない。
+        ...
+    case 2: break;  // コロンの後ろにコードがある場合はスペースをおく。
 </pre>
                 </div>
 
@@ -15610,7 +15609,7 @@ v = w * (x + z);
 x = -5;
 ++x;
 if (x &amp;&amp; !y)
-  ...
+    ...
 </pre>
                     </div>
                     <pre>// 代入演算子の前後には常にスペースをおく。
@@ -15627,7 +15626,7 @@ v = w * (x + z);
 x = -5;
 ++x;
 if (x &amp;&amp; !y)
-  ...
+    ...
 </pre>
                 </div>
 

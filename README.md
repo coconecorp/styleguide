@@ -8,6 +8,7 @@
 
 - [C#](c_sharp/README.md)
 - [Java](java/README.md)
+- [Kotlin](kotlin/README.md)
 - [HTML/CSS](html_css/README.md)
 - [TypeScript/JavaScript](typescript_javascript/README.md)
 - [TypeScript](typescript/README.md)（[TypeScript/JavaScriptスタイルガイド](typescript_javascript/README.md)の章になります）

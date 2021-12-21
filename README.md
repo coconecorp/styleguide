@@ -7,6 +7,7 @@
 ## 格納しているスタイルガイド
 
 - [C#](c_sharp/README.md)
+- [Go](go/README.md)
 - [Java](java/README.md)
 - [Kotlin](kotlin/README.md)
 - [HTML/CSS](html_css/README.md)

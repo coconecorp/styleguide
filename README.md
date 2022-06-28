@@ -6,6 +6,7 @@
 
 ## 格納しているスタイルガイド
 
+- [C++](c_pp/README.md)
 - [C#](c_sharp/README.md)
 - [Go](go/README.md)
 - [Java](java/README.md)
